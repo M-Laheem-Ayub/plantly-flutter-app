@@ -16,14 +16,14 @@ class RecommendedPlantsSection extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: mainColor.withOpacity(0.1),
+            color: mainColor.withValues(alpha: 0.1),
             offset: const Offset(0, 18),
             blurRadius: 15,
           ),
         ],
       ),
       width: double.infinity,
-      height: screenHeight * 0.37,
+      height: screenHeight * 0.38,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: plantProducts.length,
@@ -33,7 +33,7 @@ class RecommendedPlantsSection extends StatelessWidget {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: mainColor.withOpacity(0.15),
+                  color: mainColor.withValues(alpha: 0.15),
                   offset: const Offset(0, 180),
                   blurRadius: 50,
                 ),
@@ -53,7 +53,11 @@ class RecommendedPlantsSection extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(plant.imagePath, fit: BoxFit.cover),
+                  Image.asset(
+                    plant.imagePath,
+                    fit: BoxFit.cover,
+                    width: screenWidth * 0.45,
+                  ),
                   const SizedBox(height: 12),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),

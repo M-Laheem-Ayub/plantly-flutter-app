@@ -17,7 +17,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = ScreenSize.width(context);
-    final double screenHeight = ScreenSize.height(context);
 
     return SafeArea(
       child: Scaffold(

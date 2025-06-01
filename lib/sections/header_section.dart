@@ -42,7 +42,11 @@ class HeaderSection extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 76, left: 20, right: 20),
+          padding: EdgeInsets.only(
+            top: screenHeight * 0.115,
+            left: 20,
+            right: 20,
+          ),
           child: Container(
             height: 60,
             decoration: BoxDecoration(
