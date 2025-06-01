@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantly_app/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,6 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Color(0xff0C9869));
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }
