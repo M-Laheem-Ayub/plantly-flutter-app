@@ -33,7 +33,7 @@ class HeaderSection extends StatelessWidget {
                         size: 23,
                         fWeight: FontWeight.bold,
                       ),
-                      Image.asset("assets/images/logo.png", width: 60),
+                      Image.asset("assets/images/logo.png", width: 50),
                     ],
                   ),
                 ),
