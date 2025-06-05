@@ -1,64 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:plantly_app/helpers/app_colors.dart';
 import 'package:plantly_app/helpers/screen_size.dart';
-import 'package:plantly_app/widgets/custom_icon_button.dart';
+import 'package:plantly_app/models/plant_product.dart';
+import 'package:plantly_app/sections/detail_veiw_info_section.dart';
+import 'package:plantly_app/widgets/custom_button.dart';
+import 'package:plantly_app/widgets/detail_veiw_image.dart';
+import 'package:plantly_app/widgets/detail_view_icons_list.dart';
 
 class DetailViewScreen extends StatelessWidget {
-  const DetailViewScreen({super.key, required this.imagePath});
-  final String imagePath;
+  const DetailViewScreen({super.key, required this.plant});
+  final PlantProduct plant;
   @override
   Widget build(BuildContext context) {
-    double screenHeight = ScreenSize.height(context);
-    double screenWidth = ScreenSize.width(context);
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
         body: Column(
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(width: screenWidth * 0.35, height: 20),
-                    Transform.translate(
-                      offset: Offset(-30, 0),
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Image.asset("assets/icons/back_arrow.png"),
-                      ),
-                    ),
-                    SizedBox(height: 60),
-
-                    CustomIconButton(iconPath: "assets/icons/sun.png"),
-                    SizedBox(height: 40),
-                    CustomIconButton(iconPath: "assets/icons/icon_2.png"),
-                    SizedBox(height: 40),
-
-                    CustomIconButton(iconPath: "assets/icons/icon_3.png"),
-                    SizedBox(height: 40),
-
-                    CustomIconButton(iconPath: "assets/icons/icon_4.png"),
-                  ],
+                DetailViewIconsList(),
+                DetailVeiwImage(imagePath: plant.imagePath),
+              ],
+            ),
+            const SizedBox(height: 20),
+            DetailVeiwInfoSection(plant: plant),
+            Spacer(),
+            Row(
+              children: [
+                CustomButton(
+                  title: "Buy Now",
+                  titleColor: Colors.white,
+                  color: mainColor,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(30),
+                  ),
                 ),
-                Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(70),
-                        bottomLeft: Radius.circular(70),
-                      ),
-                      child: Image.asset(
-                        imagePath,
-                        height: screenHeight * 0.75,
-                        width: screenWidth * 0.65,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ],
+                CustomButton(
+                  title: "Description",
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30)),
                 ),
               ],
             ),

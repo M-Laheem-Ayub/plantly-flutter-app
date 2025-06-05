@@ -35,8 +35,7 @@ class RecommendedPlantsSection extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder:
-                      (context) => DetailViewScreen(imagePath: plant.imagePath),
+                  builder: (context) => DetailViewScreen(plant: plant),
                 ),
               );
             },
